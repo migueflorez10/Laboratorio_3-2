@@ -46,7 +46,22 @@ En la actividad se realiza la ingestión manual de datos a AWS S3 desde un conju
   - NOTA: Para la catalogación y el manejo de tablas en Athena, es importante que dentro de un mismo directorio se encuentren el mismo tipo de datos. En el caso de onu, se debe crear un directorio que represente cada tabla final y dentro de cada directorio colocar los archivos con los mismos tipos de datos. Esto mismo se aplica para tickitdb.
   - Cargamos los archivos:
   ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/c78da160-b6d4-4211-bdb9-8b80f67b07fa)
-  - 
+  - Subimos la carpeta onu:
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/b2c7d3c7-2eb6-48f0-b043-14d05060e444)
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/c1a3f3ff-4673-461a-a771-a766d62e95d7)
+
+  - Seleccionamos la opcion cargar
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/e14c2031-a326-4a6f-83a4-ee945cfeebab)
+  - En este momento los datos ya entan cargados en S3 y ya podemos proceder a catalogar los datos.
+
+- Nos vamos nuevamente a la terminal de AWS, y buscamos el servicio "AWS Glue":
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/dfc0b100-3b90-4317-b543-64bb82a9f4d5)
+- "AWS Glue" lo vamos a utilizar para poder crear y catalogar las tablas
+- Cuando accedemos al servicio, dirigimos nuestra atención al panel izquierdo y seleccionamos la opción "Crawlers" que se encuentra en la sección "Data Catalog", con el fin de catalogar las tablas.
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/b842a1fc-a8b0-49a5-b15d-3ca04002a908)
+- 
+
+
 
 
 
