@@ -42,6 +42,13 @@ En la actividad se realiza la ingestión manual de datos a AWS S3 desde un conju
     - Accede a este GitHub: https://github.com/st0263eafit/st0263-241.git y descarga directamente la carpeta "datasets".
     - La carpeta "datasets" también se encuentra dentro de los archivos del repositorio. Puedes explorarlos y descargarla desde allí.
   - Subir los archivos de los datasets onu y tickit al bucket.
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/6454eab0-f04c-4021-8b93-3e93e4bf38ea)
+  - NOTA: Para la catalogación y el manejo de tablas en Athena, es importante que dentro de un mismo directorio se encuentren el mismo tipo de datos. En el caso de onu, se debe crear un directorio que represente cada tabla final y dentro de cada directorio colocar los archivos con los mismos tipos de datos. Esto mismo se aplica para tickitdb.
+  - Cargamos los archivos:
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/c78da160-b6d4-4211-bdb9-8b80f67b07fa)
+  - 
+
+
 
 
 
