@@ -5,7 +5,7 @@
 
 ### Profesor:  Edwin Nelson Montoya Munera, emontoya@eafit.edu.co  
 
-# Laboratorio 3-3: IMPLEMENTACIÓN DE UN DATA WAREHOUSE SENCILLO CON AWS S3, GLUE y ATHENA.
+# Laboratorio 3-2: IMPLEMENTACIÓN DE UN DATA WAREHOUSE SENCILLO CON AWS S3, GLUE y ATHENA.
 
 ##  Objetivo
 
