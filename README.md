@@ -14,6 +14,37 @@ El objetivo del laboratorio 3-2 es familiarizarse con los servicios de AWS S3, G
 En la actividad se realiza la ingestión manual de datos a AWS S3 desde un conjunto de datos proporcionados en GitHub. Luego, se procede a catalogar los datos con AWS Glue, creando dos bases de datos (onudb y tickitdb) y las respectivas tablas. Por último, se realizan consultas SQL con AWS Athena a las tablas catalogadas para analizar los datos almacenados.
 
 ## Guia paso a paso 
+- En AWS necesitamos buscar y acceder al servicio llamado "S3":
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/3781dcac-75aa-4c36-b62a-73d662f73ed6)
+- Creamos un "Bucket"
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/5a914763-8883-4273-8227-f9db1acea29b)
+- Realizamos las iguientes configuraciones para el "Bucket":
+  - Elegimos un nombre para el Bucket
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/6175719a-acaf-478f-835c-95d7e264fb6b)
+  - En propiedades de objetos, habilitamos los ACL:
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/a40b2445-dd18-4b21-8cd7-1c87f171800c)
+  - Dejamos las propiedades de objetos por defecto
+  - En "Configuración de bloqueo de acceso público para este bucket", desbloquemos el acceso publico: 
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/0bad75cb-7f27-48d5-bbf7-27f8169cf2a9)
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/9524a0fb-fc63-496f-b4f0-1ec820a0bdea)
+
+  - Control de versiones (por defecto)
+  - Etiquetas (por defecto)
+  - Cifrado predeterminado (por defecto)
+  - Hacemos clic en "crear bucket"
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/faee2d7c-9bdf-426a-8346-b7169df5577a)
+
+- Ingresamos al Bucket creado:
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/7fd4c945-445b-4698-adca-46c139376dcf)
+
+- Vamos a subir los datos de catalogacion:
+  - ¡Para encontrar la carpeta "datasets", tienes dos opciones!
+    - Accede a este GitHub: https://github.com/st0263eafit/st0263-241.git y descarga directamente la carpeta "datasets".
+    - La carpeta "datasets" también se encuentra dentro de los archivos del repositorio. Puedes explorarlos y descargarla desde allí.
+  - Subir los archivos de los datasets onu y tickit al bucket.
+
+
+
 
 ## Resultados Esperados
 Se espera obtener un Data Warehouse funcional donde se puedan realizar consultas SQL a los datos almacenados en AWS S3. Se deben haber creado las bases de datos y tablas correspondientes en AWS Glue, y se deben haber realizado consultas exitosas con Athena que permitan extraer información relevante de los datos catalogados.
