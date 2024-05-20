@@ -144,7 +144,7 @@ SELECT * FROM "labsdb"."hdi" limit 10;
 ```
 - Ejecutamos la sentencia:
 ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/dcd60637-f48e-49f4-86fc-7c663a3db666)
-- Al final podemos visualizamos los diferentes datos de salida:
+- Al final podemos visualizar los diferentes datos de salida:
 ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/24105d2b-c35e-4427-a522-724c8dcfa1aa)
 - NOTA: En este momento ya puedes realizar diferentes consultas teniendo en cuenta los datos que tenemos. 
 - Laboratorio terminado
