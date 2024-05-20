@@ -111,6 +111,51 @@ En la actividad se realiza la ingestión manual de datos a AWS S3 desde un conju
 ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/cdddd7a3-0ee5-4a3b-986b-4f5a970f0765)
 - Observamos todos los atributos y columnas que tenemos en la seccion "Shema": 
 ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/eca603ea-dbe0-42e2-8ed2-34991b921613)
+- NOTA: Podemos editar las columnas segun nuestra necesaidad.
+- Tambien podemos observar las tablas creadas en el siguiente apartado: 
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/bdf13f50-36a6-4fa8-8512-6aa14617a088)
+- Seleccionamos "export"
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/f4989073-87f3-45d3-8980-b695a1d7661a)
+- Viusalizamos los esquemas creados:
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/8c79d4a4-1c7f-4777-a896-a22a6c7d0e99)
+
+- Para consultar via SQL las tablas creadas, esto lo podemos hacer con el servicio de AWS "Athena":
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/b39221c9-5e42-4d99-854b-104c6f704b65)
+- Una vez estemos en el servicio de Athena, debemos configurar por una unica vez el Bucket y el archivo de salida de los datos:
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/532a98d0-8990-4527-809f-6ee61248d90b)
+- En esta seccion, nos preguntan a que directorio en Bucket vamos a enviar la salida, pa esto vamos a realizar las siguientes configuraciones: 
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/be780013-ac68-4033-8f6c-4b693bf98e9c)
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/a5d5453f-22fd-4c5f-9908-9712d1cbe1ed)
+- Seleccionamos el directorio "athena" que habiamos creado anteriormente:
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/c76691c7-0b30-4313-909b-94c867d7102a)
+- Damos clic en "Guardar"
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/541559e1-8122-45fa-abbc-26b8b5b60051)
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/1c93bec9-e714-4e1d-b19c-6a8dfb350733)
+- Entramos al editor de consultas:
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/da5d81ce-aee4-4690-a80a-e5193c57dc7e)
+- Seleccionamos la el origen de datos y la base de datos que hemos estado trabajando:
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/d4003b40-c176-4744-af0f-0ec7e5908324)
+- Realimos una consulta a una de las tablas:
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/27a51f62-90c1-48ab-9a67-724fa8930019)
+- Seleccionamos "vista previa de la tabla"
+- Observamos como nos crea la sentencia SQL con el siguiente comando: 
+```
+SELECT * FROM "labsdb"."hdi" limit 10;
+```
+- Ejecutamos la sentencia:
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/dcd60637-f48e-49f4-86fc-7c663a3db666)
+- Al final podemos visualizamos los diferentes datos de salida:
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/24105d2b-c35e-4427-a522-724c8dcfa1aa)
+- NOTA: En este momento ya puedes realizar diferentes consultas teniendo en cuenta los datos que tenemos. 
+
+
+
+
+
+
+
+
+
 
  
 
