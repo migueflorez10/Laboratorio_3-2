@@ -133,7 +133,7 @@ En la actividad se realiza la ingestión manual de datos a AWS S3 desde un conju
 ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/1c93bec9-e714-4e1d-b19c-6a8dfb350733)
 - Entramos al editor de consultas:
 ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/da5d81ce-aee4-4690-a80a-e5193c57dc7e)
-- Seleccionamos la el origen de datos y la base de datos que hemos estado trabajando:
+- Seleccionamos el origen de datos y la base de datos que hemos estado trabajando:
 ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/d4003b40-c176-4744-af0f-0ec7e5908324)
 - Realimos una consulta a una de las tablas:
 ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/27a51f62-90c1-48ab-9a67-724fa8930019)
