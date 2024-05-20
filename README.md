@@ -59,7 +59,35 @@ En la actividad se realiza la ingestión manual de datos a AWS S3 desde un conju
 - "AWS Glue" lo vamos a utilizar para poder crear y catalogar las tablas
 - Cuando accedemos al servicio, dirigimos nuestra atención al panel izquierdo y seleccionamos la opción "Crawlers" que se encuentra en la sección "Data Catalog", con el fin de catalogar las tablas.
 ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/b842a1fc-a8b0-49a5-b15d-3ca04002a908)
-- 
+- Creamos un "crawler":
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/89b84d85-920a-4872-b871-0c5fb05a3840)
+- Realizamos las siguientes configuraciones:
+  - Elegimos un nombre
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/8ea44053-6cfa-40bd-8b36-6dd9b07eec8d)
+  - Adicionamos una fuente de dato:
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/939258fc-aedc-4a3d-b63d-636985bdb896)
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/7f3370e1-e6b9-4ca0-a6ff-8bd51dd97621)
+  - Seleccionamos el Bucket creado anteriormente:
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/cd883129-dcbb-4773-9c85-e2c3600a395d)
+  - Seleccionamos "add an S3 data source"
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/27c5cd02-54b5-439b-8f52-48c4eccfe76c)
+  - Seguimos con la configuracion:
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/7b7b4440-27b2-4afe-85e5-52a9e2f55f8a)
+  - En la seccion del IAM Role, seleccionamos el "LabRole":
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/b7cd0d20-b44a-4e84-8994-c48ff2a7253c)
+  - Para la siguiente seccion, vamos a crear una base de datos:
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/222d14c3-0942-4d51-99da-2ac5b85ef09d)
+
+
+
+
+
+  
+  
+
+
+
+
 
 
 
