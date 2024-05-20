@@ -123,7 +123,7 @@ En la actividad se realiza la ingestión manual de datos a AWS S3 desde un conju
 ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/b39221c9-5e42-4d99-854b-104c6f704b65)
 - Una vez estemos en el servicio de Athena, debemos configurar por una unica vez el Bucket y el archivo de salida de los datos:
 ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/532a98d0-8990-4527-809f-6ee61248d90b)
-- En esta seccion, nos preguntan a que directorio en Bucket vamos a enviar la salida, pa esto vamos a realizar las siguientes configuraciones: 
+- En esta seccion, nos preguntan a que directorio en Bucket vamos a enviar la salida, para esto vamos a realizar las siguientes configuraciones: 
 ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/be780013-ac68-4033-8f6c-4b693bf98e9c)
 ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/a5d5453f-22fd-4c5f-9908-9712d1cbe1ed)
 - Seleccionamos el directorio "athena" que habiamos creado anteriormente:
