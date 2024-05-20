@@ -150,6 +150,190 @@ SELECT * FROM "labsdb"."hdi" limit 10;
 - Laboratorio terminado
 
 
+## Guía Completa para el Lab 4: Gestión de Datos vía SQL con HIVE y SparkSQL en un Clúster Hadoop en Amazon EMR
+- Infraestructura para el Lab 4
+- Conexión al Clúster Hadoop vía HUE en Amazon EMR
+- Acceder a HUE:
+  - Abre tu navegador web y ve a la URL proporcionada para tu clúster EMR. La URL tendrá el formato: http://ec2.compute-1.amazonaws.com:8888.
+  - Ingresa con el usuario y la contraseña provistos:
+    - username: hadoop
+    - password: ********
+- Crear tu propio usuario en HUE:
+  - Después de iniciar sesión con hadoop, crea tu propio usuario para gestionar tus archivos y consultas de manera independiente.
+- Preparar los Archivos de Trabajo en HDFS
+- Archivos necesarios:
+  - hdi-data.csv
+  - export-data.csv
+- Copiar los archivos al clúster EMR:
+  - Asegúrate de que los archivos hdi-data.csv y export-data.csv estén disponibles en tu máquina local.
+  - Utiliza el siguiente comando para copiar los archivos a HDFS:
+  ```
+  $ hdfs dfs -mkdir -p /user/hadoop/datasets/onu/hdi
+  $ hdfs dfs -put /ruta/local/hdi-data.csv /user/hadoop/datasets/onu/hdi/
+  $ hdfs dfs -put /ruta/local/export-data.csv /user/hadoop/datasets/onu/hdi/
+  ```
+- Gestión de Datos (DDL) y Consultas (DQL) en HIVE
+- Crear la Tabla HDI en HDFS usando Beeline
+- Iniciar Beeline:
+  - Abre una terminal y ejecuta el comando para iniciar Beeline:
+  ```
+  $ beeline
+  ```
+- Conectarse a la base de datos:
+  - Usar tu base de datos:
+  ```
+  use usernamedb;
+  ```
+- Crear la tabla HDI:
+  - Ejecuta el siguiente comando para crear la tabla HDI:
+  ```
+      CREATE TABLE HDI (
+      id INT, 
+      country STRING, 
+      hdi FLOAT, 
+      lifeex INT, 
+      mysch INT, 
+      eysch INT, 
+      gni INT
+    ) 
+    ROW FORMAT DELIMITED 
+    FIELDS TERMINATED BY ',' 
+    STORED AS TEXTFILE;
+  ```
+- Cargar Datos en la Tabla HDI
+- Opción 1: Copiar datos directamente a HDFS:
+```
+$ hdfs dfs -put /user/hadoop/datasets/onu/hdi-data.csv /user/hive/warehouse/usernamedb.db/hdi/
+```
+
+- Opción 2: Cargar datos desde HIVE:
+  - Asegúrate de dar permisos completos al directorio:
+  ```
+  $ hdfs dfs -chmod -R 777 /user/hadoop/datasets/onu/
+  ```
+  - Cargar los datos usando Beeline:
+  ```
+  $ beeline
+  0: jdbc:hive2://sandbox-hdp.hortonworks.com:2> LOAD DATA INPATH '/user/hadoop/datasets/onu/hdi-data.csv' INTO TABLE HDI;
+  ```
+- Crear la Tabla HDI en EMR/S3 usando HIVE/Hue
+- Tabla externa en S3:
+  - Conéctate a tu base de datos:
+  ```
+  use usernamedb;
+  ```
+  - Crear la tabla externa en S3:
+  ```
+        CREATE EXTERNAL TABLE HDI (
+        id INT, 
+        country STRING, 
+        hdi FLOAT, 
+        lifeex INT, 
+        mysch INT, 
+        eysch INT, 
+        gni INT
+      ) 
+      ROW FORMAT DELIMITED 
+      FIELDS TERMINATED BY ',' 
+      STORED AS TEXTFILE 
+      LOCATION 's3://st0263datasets/onu/hdi/';
+  ```
+- Realizar Consultas y Cálculos en la Tabla HDI
+- Mostrar tablas:
+```
+use usernamedb;
+show tables;
+```
+- Describir la tabla HDI:
+```
+describe hdi;
+```
+- Seleccionar todos los registros de la tabla HDI:
+```
+select * from hdi;
+```
+- Consultar países con GNI mayor a 2000:
+```
+select country, gni from hdi where gni > 2000;
+```
+- Ejecutar un JOIN en HIVE
+- Obtener los datos base: export-data.csv
+  - Asegúrate de tener los datos en datasets del repositorio y cargarlos en HDFS/S3 según sea necesario.
+- Crear la tabla EXPO:
+  - Usar HIVE/Hue para crear la tabla EXPO:
+  ```
+        use usernamedb;
+      CREATE EXTERNAL TABLE EXPO (
+        country STRING, 
+        expct FLOAT
+      ) 
+      ROW FORMAT DELIMITED 
+      FIELDS TERMINATED BY ',' 
+      STORED AS TEXTFILE 
+      LOCATION 's3://st0263datasets/onu/export/';
+  ```
+- Ejecutar el JOIN de las dos tablas:
+```
+SELECT h.country, gni, expct 
+FROM HDI h 
+JOIN EXPO e ON (h.country = e.country) 
+WHERE gni > 2000;
+```
+
+- Wordcount en HIVE
+- Crear la tabla docs (alternativa 1 en HDFS):
+```
+use usernamedb;
+CREATE EXTERNAL TABLE docs (
+  line STRING
+) 
+STORED AS TEXTFILE 
+LOCATION 'hdfs://localhost/user/hadoop/datasets/gutenberg-small/';
+```
+- Crear la tabla docs (alternativa 2 en S3):
+```
+CREATE EXTERNAL TABLE docs (
+  line STRING
+) 
+STORED AS TEXTFILE 
+LOCATION 's3://st0263datasets/gutenberg-small/';
+```
+- Realizar el conteo de palabras ordenado por palabra:
+```
+SELECT word, count(1) AS count 
+FROM (SELECT explode(split(line,' ')) AS word FROM docs) w 
+GROUP BY word 
+ORDER BY word DESC 
+LIMIT 10;
+```
+- Realizar el conteo de palabras ordenado por frecuencia (de mayor a menor):
+```
+SELECT word, count(1) AS count 
+FROM (SELECT explode(split(line,' ')) AS word FROM docs) w 
+GROUP BY word 
+ORDER BY count DESC 
+LIMIT 10;
+```
+- Reto: Almacenar Resultados de un Query en una Tabla
+- Para almacenar el diccionario de frecuencia de palabras en una nueva tabla, puedes hacer lo siguiente:
+- Crear una nueva tabla para los resultados:
+```
+use usernamedb;
+CREATE TABLE wordcount_results (
+  word STRING, 
+  count INT
+) 
+STORED AS TEXTFILE;
+```
+- Insertar los resultados del query en la nueva tabla:
+```
+INSERT INTO TABLE wordcount_results 
+SELECT word, count(1) AS count 
+FROM (SELECT explode(split(line,' ')) AS word FROM docs) w 
+GROUP BY word;
+```
+- NOTA: Siguiendo esta guía paso a paso, deberías poder conectar y gestionar datos en tu clúster Hadoop usando HIVE y SparkSQL. Desde la configuración inicial y la carga de datos, hasta la ejecución de consultas complejas y la gestión de resultados, esta guía te proporciona una base sólida para trabajar con datos en un entorno de Big Data.
+
 ## Resultados Esperados
 Se espera obtener un Data Warehouse funcional donde se puedan realizar consultas SQL a los datos almacenados en AWS S3. Se deben haber creado las bases de datos y tablas correspondientes en AWS Glue, y se deben haber realizado consultas exitosas con Athena que permitan extraer información relevante de los datos catalogados.
 
