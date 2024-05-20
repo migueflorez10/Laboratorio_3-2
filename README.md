@@ -77,6 +77,48 @@ En la actividad se realiza la ingestión manual de datos a AWS S3 desde un conju
   ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/b7cd0d20-b44a-4e84-8994-c48ff2a7253c)
   - Para la siguiente seccion, vamos a crear una base de datos:
   ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/222d14c3-0942-4d51-99da-2ac5b85ef09d)
+  - Seleccionamos un nombre para nuestra base de datos, y la creamos: 
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/c991ac47-6588-42c5-9a99-5a7b365ca1ac)
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/36790e08-5f71-4668-8efe-4f8ac21b4bdb)
+  - volvemos a la pagina del crawler, y refrescamos las "target database" para poder seleccionar la base de datos que acabamos de crear: 
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/fcd24b3a-b555-4f4f-a1f1-7123b54ef0a9)
+  - Dejamos el resto de las configuraciones por defecto y nos vamos al boton de "Next"
+  - Dejamos el las ultimas configuraciones por defecto y damos clic en "Create crawler"
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/8737c76c-9efd-42fd-a022-e9557040506c)
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/cc90d90e-9797-49ab-86b5-a84e9104b1d9)
+  - Al tener el crawler creado, procedemos a correrlo (esto puede tardar unos minutos): 
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/07f831d5-458c-42d5-9257-b9ae54bf778b)
+  ![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/9227b4a9-e0e8-43da-a46b-ae456fd5417b)
+
+
+- Mientras se ejecuta, realizaremos los siguientes pasos para ejecutar el servicio de Athena, que nos permite consultar datos en SQL. Primero, necesitamos crear un bucket y un directorio de trabajo. El bucket ya lo creamos en pasos anteriores, por lo que solo queda crear el directorio.
+- Pasos:
+- Entramos al Bucket:
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/652ff9d3-12f7-47a5-9abd-2bb47414d7f9)
+- Creamos una nueva carpeta:
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/a63e78e6-79f7-49e2-9d28-86645329e370)
+- Elegimos un nombre para la carpeta, en nustro caso la nombramos "athena", 
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/00247a5d-6252-40c9-ae5e-df4c10f73677)
+- Confirmamos la creacion de la carpeta:
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/4c154e7a-07f8-4785-867f-838218cebd32)
+- Volvemos al crawler creado, y nos dirigimos a la base de datos:
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/02b942c0-e7f4-4ca9-b25e-83704dbe3d86)
+- Seleccionamos la base de datos que habiamos creado anteriormente: 
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/4ed31605-4c67-4f3c-ba02-52f2932b4461)
+- Visualizamos las tablas que se crearon: 
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/6cc1285d-30ef-48e5-b0cc-b925cf8e180f)
+- Ahora podemos entrar a cualquier tabla a visualizar los datos, por ejemplo vamos a ver la tabla de "hdi":
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/cdddd7a3-0ee5-4a3b-986b-4f5a970f0765)
+- Observamos todos los atributos y columnas que tenemos en la seccion "Shema": 
+![image](https://github.com/migueflorez10/Laboratorio_3-2/assets/68928440/eca603ea-dbe0-42e2-8ed2-34991b921613)
+
+ 
+
+
+
+  
+
+
 
 
 
